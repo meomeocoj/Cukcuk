@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+
+    <title>Cukcuk</title>
+</head>
+<body>
+    <!--This is the top-header-->
+    <div class="top-header">
+        <div class="top-left">
+            <div class="icon">
+                <img src="Resource/img/toggle.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="Resource/cukcuk-logo.png" alt="">
+            </div>
+        </div>
+        <div class="top-right">
+            <div class="department">
+                <img src="Resource/img/Artboard-97@10x.png" alt="" style="width:30px; height:30px;">
+                <div class="dropdown-departments" style="display:inline-block">
+                   <select name="departments-name" id="departments-name">
+                       <option value="ha-noi">Chi nhánh Hà Nội</option>
+                   </select>
+                </div>
+            </div>
+            <div class="user">
+                <img src="" alt="notify" id="notify" style="display:inline-block; width:24px;height:24px;margin-right:16px;">
+                <img src="Resource/icon/avatar-default.png" alt="" id="avatar" style="display:inline-block; width:30px;height:30px;margin-right:16px;">
+                <span id="name" style="margin-right:16px;">Nguyễn Tuấn Minh</span>
+                <a href="#"><img src="Resource/icon/option.png" alt="" id="option"></a>
+                
+            </div>
+        </div>
+    </div>
+    <!--This is the body of the main site-->
+    <div class="flex-container">
+        <!--This is sidebar-->
+        <div class="side-bar-container">
+            <div class="side-bar-node">
+                <div class="icon">
+                    <img src="Resource/icon/dashboard.png" alt="">
+                </div>
+                <p class="text">Tổng quan</p>
+            </div>
+            <div class="side-bar-node">
+                <div class="icon">
+                    <img src="Resource/icon/report.png" alt="">
+                </div>
+                <p class="text">Báo cáo</p>
+            </div>
+            <div class="side-bar-node">
+                <div class="icon">
+                    <img src="Resource/icon/dashboard.png" alt="">
+                </div>
+                <p class="text">Mua hàng</p>
+            </div>
+            <div class="side-bar-node">
+                <div class="icon">
+                    <img src="Resource/icon/dic-employee.png" alt="">
+                </div>
+                <p class="text">Danh mục nhân viên</p>
+            </div>
+            <div class="side-bar-node">
+                <div class="icon">
+                    <img src="Resource/icon/setting.png" alt="">
+                </div>
+                <p class="text">Thiệt lập hệ thống</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-header">
+                <div class="main-header-left">Danh sách nhân viên</div>
+                <div class="main-header-right">
+                    <button class="btn-type-1">
+                        <i><img src="Resource/icon/add.png" alt=""></i>
+                        <span>Thêm nhân viên</span>
+                    </button>
+                </div>
+            </div>
+            <div class="filter">
+                <div class="filter-left">
+                    <input type="text" class="search-background input-icon" id="search-employee" placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
+                    <select class="input-normal" name="filter-position" id="filter-position">
+                        <option value="none">Tất cả phòng ban</option>
+                    </select>
+                </div>
+                <div class="filter-right refresh-background btn-type-2">
+                    
+                </div>
+            </div>  
+            <div class="table-content"></div>
+            <div class="paging-btn"></div>
+        </div>
+    </div>
+</body>
+</html>
