@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/scrollbar.css">
+    <link rel="stylesheet" href="../css/dialog.css">
     <title>Cukcuk</title>
 </head>
 
@@ -29,13 +30,15 @@
                 <img src="../Resource/img/Artboard-97@10x.png" alt="" style="width:30px; height:30px;">
                 <div class="dropdown-departments" style="display:inline-block">
                     <select name="departments-name" id="departments-name">
-                       <option value="ha-noi">Chi nhánh Hà Nội</option>
-                   </select>
+                        <option value="ha-noi">Chi nhánh Hà Nội</option>
+                    </select>
                 </div>
             </div>
             <div class="user">
-                <img src="" alt="notify" id="notify" style="display:inline-block; width:24px;height:24px;margin-right:16px;">
-                <img src="../Resource/icon/avatar-default.png" alt="" id="avatar" style="display:inline-block; width:30px;height:30px;margin-right:16px;">
+                <img src="../Resource/icon/bell.png" alt="notify" id="notify"
+                    style="display:inline-block; width:24px;height:24px;margin-right:16px;">
+                <img src="../Resource/icon/avatar-default.png" alt="" id="avatar"
+                    style="display:inline-block; width:30px;height:30px;margin-right:16px;">
                 <span id="name" style="margin-right:16px;">Nguyễn Tuấn Minh</span>
                 <a href="#"><img src="../Resource/icon/option.png" alt="" id="option"></a>
 
@@ -95,7 +98,8 @@
             </div>
             <div class="filter">
                 <div class="filter-left">
-                    <input type="text" class="search-background input-icon" id="search-employee" placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
+                    <input type="text" class="search-background input-icon" id="search-employee"
+                        placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
                     <select class="input-normal" name="filter-position" id="filter-position">
                         <option value="none">Tất cả phòng ban</option>
                     </select>
@@ -295,9 +299,124 @@
             </div>
         </div>
     </div>
-    <script src="js/library/jquery-3.6.0.js"></script>
-    <script src="js/common/common.js"></script>
-    <script src="js/page/employees.js"></script>
+    <div class="dialog-container">
+        <div class="dialog-modal">
+            <div class="dialog-modal-add-form">
+                <span class="modal-header-text">THÔNG TIN NHÂN VIÊN</span>
+                <img class="close-btn" id="btn-close" src="../Resource/icon/x.svg" alt="">
+                <div class="dialog-modal-add-form-main">
+                    <div class="avatar">
+                        <img src="../Resource/img/default-avatar.jpg" alt=""
+                            style="display:inline-block; height:240px; width:240px; border-radius:50%;">
+                        <p style="text-overflow: ellipsis;text-align: center;">(Vui lòng chọn ảnh có định dạng .jpg,
+                            .jpeg, .png, .gif)</p>
+                    </div>
+                    <div class="add-form">
+                        <div class="common-info">
+                            <p class="add-form-header">A. THÔNG TIN CHUNG:</p>
+                            <div class="common-inputs">
+                                <div class="common-input">
+                                    <label for="employee-id">Mã nhân viên</label>
+                                    <br>
+                                    <input type="text" id="employee-id" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="full-name">Họ và tên</label>
+                                    <br>
+                                    <input type="text" id="full-name" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="date-of-birth">Ngày sinh</label>
+                                    <br>
+                                    <input type="text" id="date-of-birth" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="gender">Giới tính</label>
+                                    <br>
+                                    <input type="text" id="gender" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="idenity-number">Số CMTND/ Căn cước</label>
+                                    <br>
+                                    <input type="text" id="idenity-number" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="date-apply">Ngày cấp</label>
+                                    <br>
+                                    <input type="text" id="date-apply" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="location">Nơi cấp</label>
+                                    <br>
+                                    <input type="text" id="location" class="input-label">
+                                </div>
+                                <div class="common-input" style="opacity: 0;">
+                                    <label for="full-name">MÃ NHÂN VIÊN</label>
+                                    <br>
+                                    <input type="text" id="full-name" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="email">Email</label>
+                                    <br>
+                                    <input type="text" id="email" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="phone-number">Số điện thoại</label>
+                                    <br>
+                                    <input type="text" id="phone-number" class="input-label">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-info">
+                            <p class="add-form-header">B. THÔNG TIN CÔNG VIỆC:</p>
+                            <div class="common-inputs">
+                                <div class="common-input">
+                                    <label for="office">Vị trí</label>
+                                    <br>
+                                    <input type="text" id="office" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="full-name">Phòng ban</label>
+                                    <br>
+                                    <input type="text" id="full-name" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="tax-number">Mã số thuế cá nhân</label>
+                                    <br>
+                                    <input type="text" id="tax-number" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="salary">Mức lương cơ bản</label>
+                                    <br>
+                                    <input type="text" id="salary" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="date-start">Ngày gia nhập công ty</label>
+                                    <br>
+                                    <input type="text" id="date-start" class="input-label">
+                                </div>
+                                <div class="common-input">
+                                    <label for="job-status">Tình trạng công việc</label>
+                                    <br>
+                                    <input type="text" id="job-status" class="input-label">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-form-footer">
+                    <div class="btn-type-2" id="cancel" style="width:70px">Hủy</div>
+                    <div class="btn-type-1" id="save" style="width:70px"><img src="../Resource/icon/floppy-disk.png" alt="" style="width:20px;height:20px;display: inline-block; margin-right: 10px;">Lưu</div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-background"></div>
+    </div>
+    </div>
+    <script src="../js/library/jquery-3.6.0.js"></script>
+    <script src="../js/common/common.js"></script>
+    <script src="../js/page/employees.js"></script>
 </body>
 
 </html>

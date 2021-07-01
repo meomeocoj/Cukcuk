@@ -78,7 +78,6 @@
     display: flex;
     justify-content: flex-start;
     width: 220px;
-    height: 100vh;
     border-right: 1px solid #BBBBBB;
 }
 
@@ -137,11 +136,11 @@
 .flex-container {
     display: flex;
     justify-content: flex-start;
+    
 }
 
 .side-bar-container {
     width: 220px;
-    height: 100vh;
     border-right: 1px solid #BBBBBB;
 }
 
@@ -171,4 +170,5 @@
 
 .flex-container>.main {
     width: calc(100% - 220px);
+    height: calc(100vh - 48px);
 }

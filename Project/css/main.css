@@ -1,8 +1,4 @@
-    .main {
-        width: 100%;
-    }
     /*header */
-    
     .main>.main-header {
         display: flex;
         justify-content: space-between;
@@ -45,7 +41,6 @@
         padding: 12px 16px;
     }
     /*paging-bar*/
-    
     .paging-bar {
         height: 56px;
         display: flex;
