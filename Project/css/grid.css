@@ -1,12 +1,15 @@
-.grid{
+.grid {
     margin-left: 16px;
     margin-right: 16px;
-    height:calc(100vh - 246px);
+    height: calc(100vh - 246px);
 }
-table th,td{
+
+table th,
+td {
     border-bottom: 1px solid #bbb;
-    padding:10px 0px 10px 16px;
+    padding: 10px 0px 10px 16px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
