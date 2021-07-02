@@ -90,7 +90,7 @@
             <div class="main-header">
                 <div class="main-header-left">Danh sách nhân viên</div>
                 <div class="main-header-right">
-                    <button class="btn-type-1">
+                    <button id = "btnAdd" class="btn-type-1">
                         <i><img src="../Resource/icon/add.png" alt=""></i>
                         <span>Thêm nhân viên</span>
                     </button>
@@ -100,180 +100,279 @@
                 <div class="filter-left">
                     <input type="text" class="search-background input-icon" id="search-employee"
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
-                    <select class="input-normal" name="filter-position" id="filter-position">
+                    <select class="input-label input-normal" name="filter-position" id="filter-position">
                         <option value="none">Tất cả phòng ban</option>
                     </select>
                 </div>
-                <div class="filter-right refresh-background btn-type-2">
+                <div class="filter-right refresh-background btn-type-2" id="btnRefresh">
                 </div>
             </div>
             <div class="grid">
                 <table cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Mã nhân viên</th>
+                            <th> Mã nhân viên</th>
                             <th>Họ và tên</th>
                             <th>Giới tính</th>
                             <th>Ngày sinh</th>
                             <th>Số điện thoại</th>
+                            <th>Email</th>
+                            <th>Chức vụ</th>
+                            <th>Phòng ban</th>
+                            <th>Mức lương hiện tại</th>
                             <th>Địa chỉ</th>
+                            <th>Tình trạng công việc</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                         <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
 
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
+                        </tr>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
 
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Tổ 4, Thạch Bàn, Long Biên, Hà Nội, Việt Nam</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Tổ 4, Thạch Bàn, Long Biên, Hà Nội, Việt Nam</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Tổ 4, Thạch Bàn, Long Biên, Hà Nội, Việt Nam</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Tổ 4, Thạch Bàn, Long Biên, Hà Nội, Việt Nam</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th>
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Tổ 4, Thạch Bàn, Long Biên, Hà Nội, Việt Nam</td>
-                        </tr>
-                        <tr>
-                            <td>MF916</td>
-                            <td>Nguyễn Tuấn Minh</td>
-                            <td>Nam</td>
-                            <td>11/03/2000</td>
-                            <td>0915871399</td>
-                            <td style="max-width: 100px;">Long Biên, Hà Nội</td>
+                        <tr> 
+                            <th>MF916</th>
+                            <th>Nguyễn Tuấn Minh</th>
+                            <th>Nam</th>
+                            <th>11/03/2000</th>
+                            <th>09159871399</th>
+                            <th>tminh1103@gmail.com</th> 
+                            <th>fresherWeb</th>
+                            <th>Misa</th>
+                            <th>3.000.000</th>
+                            <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
+                            <th>Đào tạo</th>
                         </tr>
                     </tbody>
                 </table>
@@ -316,54 +415,54 @@
                             <p class="add-form-header">A. THÔNG TIN CHUNG:</p>
                             <div class="common-inputs">
                                 <div class="common-input">
-                                    <label for="employee-id">Mã nhân viên</label>
+                                    <label for="employee-id" class ="must-fill">Mã nhân viên</label>
                                     <br>
-                                    <input type="text" id="employee-id" class="input-label">
+                                    <input type="text" id="employee-id" class="input-label must-fill-input">
                                 </div>
                                 <div class="common-input">
-                                    <label for="full-name">Họ và tên</label>
+                                    <label for="full-name" class ="must-fill">Họ và tên</label>
                                     <br>
-                                    <input type="text" id="full-name" class="input-label">
+                                    <input type="text" id="full-name" class="input-label must-fill-input">
                                 </div>
                                 <div class="common-input">
                                     <label for="date-of-birth">Ngày sinh</label>
                                     <br>
-                                    <input type="text" id="date-of-birth" class="input-label">
+                                    <input type="date" id="date-of-birth" class="input-label">
                                 </div>
                                 <div class="common-input">
-                                    <label for="gender">Giới tính</label>
+                                    <label for="gender" >Giới tính</label>
                                     <br>
                                     <input type="text" id="gender" class="input-label">
                                 </div>
                                 <div class="common-input">
-                                    <label for="idenity-number">Số CMTND/ Căn cước</label>
+                                    <label for="idenity-number" class ="must-fill">Số CMTND/ Căn cước</label>
                                     <br>
-                                    <input type="text" id="idenity-number" class="input-label">
+                                    <input type="text" id="idenity-number" class="input-label must-fill-input">
                                 </div>
                                 <div class="common-input">
-                                    <label for="date-apply">Ngày cấp</label>
+                                    <label for="date-apply" >Ngày cấp</label>
                                     <br>
-                                    <input type="text" id="date-apply" class="input-label">
+                                    <input type="date" id="date-apply" class="input-label">
                                 </div>
                                 <div class="common-input">
-                                    <label for="location">Nơi cấp</label>
+                                    <label for="location" >Nơi cấp</label>
                                     <br>
                                     <input type="text" id="location" class="input-label">
                                 </div>
-                                <div class="common-input" style="opacity: 0;">
-                                    <label for="full-name">MÃ NHÂN VIÊN</label>
+                                <div class="common-input" style="visibility: hidden;">
+                                    <label for="full-name"></label>
                                     <br>
-                                    <input type="text" id="full-name" class="input-label">
+                                    <input type="text" class="input-label">
                                 </div>
                                 <div class="common-input">
-                                    <label for="email">Email</label>
+                                    <label for="email" class ="must-fill">Email</label>
                                     <br>
-                                    <input type="text" id="email" class="input-label">
+                                    <input type="text" id="email" class="input-label must-fill-input">
                                 </div>
                                 <div class="common-input">
-                                    <label for="phone-number">Số điện thoại</label>
+                                    <label for="phone-number" class ="must-fill">Số điện thoại</label>
                                     <br>
-                                    <input type="text" id="phone-number" class="input-label">
+                                    <input type="text" id="phone-number" class="input-label must-fill-input">
                                 </div>
                             </div>
                         </div>
@@ -378,7 +477,7 @@
                                 <div class="common-input">
                                     <label for="full-name">Phòng ban</label>
                                     <br>
-                                    <input type="text" id="full-name" class="input-label">
+                                    <input type="text" id="department" class="input-label">
                                 </div>
                                 <div class="common-input">
                                     <label for="tax-number">Mã số thuế cá nhân</label>
@@ -415,6 +514,7 @@
     </div>
     </div>
     <script src="../js/library/jquery-3.6.0.js"></script>
+    <script src="../js/common/base.js"></script>
     <script src="../js/common/common.js"></script>
     <script src="../js/page/employees.js"></script>
 </body>

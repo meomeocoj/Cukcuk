@@ -47,13 +47,20 @@
     border:1px solid #DBDEFF;
     border-radius: 4px;
 }
+
+.input-icon:focus::-webkit-input-placeholder{
+    visibility: hidden;
+}
+.input-icon:focus{
+    border: 1px solid #019160;
+}
 .input-normal{
     padding: 12px 16px;
     border:1px solid #DBDEFF;
     border-radius: 4px;
 }
 .input-label{
-    border: 1px solid #bbb;
+    border: 1px solid #bbb; 
     padding:0px 16px;
     border-radius: 4px;
     height: 40px;
@@ -68,7 +75,7 @@
 }
 .common-input label{
     display: inline-block;
-    font-family: "GoogleSans-Medium";
+    font-family: "GoogleSans-Regular";
     padding: 4px 0px;
     margin-top: 10px;
 }
@@ -78,4 +85,7 @@
     background-position-x: center;
     background-position-y: center;
 
+}
+.border-red{
+    border:1px solid red;
 }

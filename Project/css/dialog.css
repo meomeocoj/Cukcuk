@@ -40,8 +40,13 @@
         }
             .dialog-container .dialog-modal .dialog-modal-add-form .close-btn{
                 position: absolute;
-                right: 10px;
-                top: 10px;
+                right: 0px;
+                top: 0;
+                padding: 8px 8px;
+                border-radius:0px 4px 0px 0px;
+            }
+            .dialog-container .dialog-modal .dialog-modal-add-form .close-btn:hover{
+                background-color: #E5E5E5;
             }
             .dialog-container .dialog-modal .dialog-modal-add-form .modal-header-text{
                 margin-top: 10px;
@@ -93,4 +98,10 @@
                     z-index: 1001;
                     display: flex;
                     justify-content: flex-end;
+                    border-radius: 0px 0px 4px 4px;
+                }
+                #cancel{
+                    border: 1px solid #BBB;
+                    border-radius:4px;
+                    margin-right: 4px;
                 }

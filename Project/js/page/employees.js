@@ -1,16 +1,10 @@
 $(document).ready(function() {
-    loadData();
+    new Employees;
+    $('.must-fill').append(" (<span style='color:red;'>*</span>)");
 })
 
-function loadData() {
-    //fetch data
-    $.ajax({
-        url: "http://api.manhnv.net/api/employees",
-        method: "GET"
-    }).done(function(res) {
-        var data = res;
-        debugger;
-    }).fail(function(res) {
-
-    })
+class Employees extends Base{
+    constructor(){
+        super();
+    }
 }
