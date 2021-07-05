@@ -8,8 +8,9 @@ class Base{
         //click events
         $('#btnAdd').click(function(){
             //display the add dialog;
-            $('.dialog-container').show();
+            $('.dialog-container').show(); 
         })
+        $('.dialog-container').on()
         $('.close-btn').click(function(){
             $('.dialog-container').hide();
         })

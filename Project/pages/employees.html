@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/scrollbar.css">
     <link rel="stylesheet" href="../css/dialog.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
     <title>Cukcuk</title>
 </head>
 
@@ -100,9 +101,15 @@
                 <div class="filter-left">
                     <input type="text" class="search-background input-icon" id="search-employee"
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
-                    <select class="input-label input-normal" name="filter-position" id="filter-position">
-                        <option value="none">Tất cả phòng ban</option>
-                    </select>
+                    <div class="dropdown-wrapper">
+                        <select class="" name="filter-position" id="">
+                            <option value="none">Tất cả phòng ban</option>
+                            <option value="none">phòng ban 1</option>
+                            <option value="none">phòng ban 2</option>
+                            <option value="none">phòng ban 3</option>  
+                        </select>
+                        <span class="dropdown-arrow arrow"></span>
+                    </div>
                 </div>
                 <div class="filter-right refresh-background btn-type-2" id="btnRefresh">
                 </div>
@@ -417,7 +424,7 @@
                                 <div class="common-input">
                                     <label for="employee-id" class ="must-fill">Mã nhân viên</label>
                                     <br>
-                                    <input type="text" id="employee-id" class="input-label must-fill-input">
+                                    <input type="text" id="employee-id" class="input-label must-fill-input" autofocus>
                                 </div>
                                 <div class="common-input">
                                     <label for="full-name" class ="must-fill">Họ và tên</label>
@@ -492,7 +499,7 @@
                                 <div class="common-input">
                                     <label for="date-start">Ngày gia nhập công ty</label>
                                     <br>
-                                    <input type="text" id="date-start" class="input-label">
+                                    <input type="date" id="date-start" class="input-label">
                                 </div>
                                 <div class="common-input">
                                     <label for="job-status">Tình trạng công việc</label>
