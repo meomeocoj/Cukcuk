@@ -113,19 +113,6 @@
     justify-content: flex-start;
     margin-left: 16px;
 }
-
-.top-header>.top-right>.department>.dropdown-departments {
-    margin-left: 16px;
-    font-size: 15px;
-    font-family: "GoogleSans-Bold";
-}
-
-.top-header>.top-right>.department>.dropdown-departments>select {
-    border: none;
-    font-size: 15px;
-    font-family: "GoogleSans-Bold";
-}
-
 .top-header>.top-right>.user {
     display: flex;
     align-items: center;

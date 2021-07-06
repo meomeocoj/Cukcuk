@@ -1,58 +1,65 @@
 .dropdown-wrapper{
+    position: relative;
+    height: 30px;
+    padding: 0px 24px;
+    width:240px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: "GoogleSans-Bold";
+    z-index: 101;
+}
+.dropdown-wrapper .department-name{
     display: inline-block;
-    position: absolute;
-    margin-left: 8px;
+    text-align: left;
+    margin-left: 12px;
+    line-height: 30px;
+    font-size:inherit;
+    font-family: inherit;
+    border:none;
 }
-.dropdown-wrapper select{
-    height: 43px;
-    width: 250px;
-    padding: 0px 12px 0px 16px;
-    border-radius: 4px;
-    border:solid 1px #bbb;
-
-}
-.dropdown-wrapper select > option:hover{
-    background-color: pink;
-}
-.dropdown-wrapper select:focus{
-    border:solid 1px #019160;
-}
-.dropdown-arrow{
-    display: block;
-    position: absolute;
-    width: 1.5rem;
-    height: 41px;
-    background-color: #fff;
-    top:0px;
-    right:0px;
-    border:1px solid #bbb;
-    border-left: none;
-    border-radius: 0px 4px 4px 0px;
-    padding-right: 10px;
-    pointer-events: none;
-}
-.arrow::after, .arrow::before{
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    transform:translate(-50%,-50%);
-    border: solid #454545;
-    border-width: 0 2px 2px 0;
-    padding: 3px;
-}
-.arrow::before{
+.dropdown-wrapper .dropdown-list{
     display: none;
-    visibility: hidden;
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
+    position: absolute;
+    top:31px;
+    max-height: 150px;
+    width:calc(100% - 24px);
+    background-color:#fff;
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 4px;
+    z-index: 101;
 }
-.arrow::after{
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+.dropdown-wrapper .dropdown-list .item{
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height:30px;
+    font-family: "GoogleSans-Bold";
+    width:100%;
+    height:30px;
+    padding-left: 12px;
+    border:1px solid #dedede;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+.dropdown-wrapper .dropdown-list .item:hover{
+    background-color:#bbb;
+    color:#fff;
+}
+.dropdown-wrapper .arrow{
+    position: absolute;
+    height:15px;
+    width:15px;
+    top: 7.5px;
+    right: 0px;
+    background-image: url('../Resource/icon/arrow.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    transform: rotate(90deg);
+    z-index: 101;
+    cursor: pointer;
+    transition: transform .25s ease-in-out; 
+}
+.arrow-click{
+    transform: rotate(-90deg) !important;
 }

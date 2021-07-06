@@ -29,10 +29,16 @@
         <div class="top-right">
             <div class="department">
                 <img src="../Resource/img/Artboard-97@10x.png" alt="" style="width:30px; height:30px;">
-                <div class="dropdown-departments" style="display:inline-block">
-                    <select name="departments-name" id="departments-name">
-                        <option value="ha-noi">Chi nhánh Hà Nội</option>
-                    </select>
+                <div class="dropdown-wrapper" style="display:inline-block">
+                    <input class="department-name" value=""/>
+                    <div class="dropdown-list">
+                        <div class="item">Chi nhánh Hồ Chí Minh</div>
+                        <div class="item">Chi nhánh Hà Nội</div>
+                        <div class="item">Chi nhánh Đà Nẵng</div>       
+                        <div class="item">Chi nhánh Cần Thơ</div>                             
+                    </div>
+                    <div class="arrow"></div>
+                    <div class="click-outside"></div>
                 </div>
             </div>
             <div class="user">
@@ -101,14 +107,24 @@
                 <div class="filter-left">
                     <input type="text" class="search-background input-icon" id="search-employee"
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
-                    <div class="dropdown-select" style="display:inline-block">
-                        <select class="input-label input-normal" name="filter-position" id="filter-position">
-                            <option value="none">Tất cả phòng ban</option>
-                            <option value="none">Tất cả phòng ban</option>
-                            <option value="none">Tất cả phòng ban</option>
-                        </select>
-
-                    </div>
+                        <div class="dropdown-wrapper" style="display:inline-block">
+                            <span class="department-name">Chi nhánh Hà Nội</span>
+                            <div class="dropdown-list">
+                                <div class="item">
+                                    Chi nhánh Hồ Chí Minh
+                                </div>
+                                <div class="item">
+                                    Chi nhánh Hồ Chí Minh
+                                </div>    
+                                <div class="item">
+                                    Chi nhánh Hồ Chí Minh
+                                </div>       
+                                <div class="item">
+                                    Chi nhánh Hồ Chí Minh
+                                </div>                             
+                            </div>
+                            <div class="arrow"></div>
+                        </div>
                 </div>
                 <div class="filter-right refresh-background btn-type-2" id="btnRefresh">
                 </div>
@@ -529,6 +545,7 @@
     <script src="../js/common/base.js"></script>
     <script src="../js/common/common.js"></script>
     <script src="../js/page/employees.js"></script>
+    <script src="../js/common/dropdown.js"></script>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ table th,
 td {
     box-sizing: border-box;
     max-width: 100px;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #ded;
     box-sizing: border-box;
     line-height:48px;
     text-align: left;
@@ -27,4 +27,7 @@ td {
 
 table tbody tr:nth-child(odd) {
     background-color: #E9EBEE;
+}
+table tr:hover{
+    background-color: #bbb !important;
 }

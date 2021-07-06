@@ -13,13 +13,13 @@ class Base {
         //autofocus when show;
         $('#btnAdd').click(function () {
             //display the add dialog;
-            $('.dialog-container').show();
+            $('.dialog-container').show(500);
             $('#employee-id').focus();
         })
 
         //close the add dialog
         $('.close-btn').click(function () {
-            $('.dialog-container').hide();
+            $('.dialog-container').hide(500);
             $('.must-fill-input').removeClass('border-red');
         })
         $('#btnCancel').click(function () {
