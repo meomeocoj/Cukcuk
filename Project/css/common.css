@@ -78,6 +78,7 @@
     font-family: "GoogleSans-Regular";
     padding: 4px 0px;
     margin-top: 10px;
+   
 }
 .refresh-background{
     background-image: url('/Project/Resource/icon/refresh.png');
@@ -87,5 +88,5 @@
 
 }
 .border-red{
-    border:1px solid red;
+    border:1px solid red !important;
 }

@@ -100,9 +100,13 @@
                 <div class="filter-left">
                     <input type="text" class="search-background input-icon" id="search-employee"
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
-                    <select class="input-label input-normal" name="filter-position" id="filter-position">
-                        <option value="none">Tất cả phòng ban</option>
-                    </select>
+                    <div class="dropdown-select" style="display:inline-block">
+                        <select class="input-label input-normal" name="filter-position" id="filter-position">
+                            <option value="none" >Tất cả phòng ban</option>
+                            <option value="none">Tất cả phòng ban</option>
+                            <option value="none">Tất cả phòng ban</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="filter-right refresh-background btn-type-2" id="btnRefresh">
                 </div>
@@ -111,21 +115,21 @@
                 <table cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th> Mã nhân viên</th>
-                            <th>Họ và tên</th>
-                            <th>Giới tính</th>
-                            <th>Ngày sinh</th>
-                            <th>Số điện thoại</th>
-                            <th>Email</th>
-                            <th>Chức vụ</th>
-                            <th>Phòng ban</th>
-                            <th>Mức lương hiện tại</th>
-                            <th>Địa chỉ</th>
-                            <th>Tình trạng công việc</th>
+                            <th fieldname="EmployeeCode"> Mã nhân viên</th>
+                            <th fieldname="FullName">Họ và tên</th>
+                            <th fieldname="Gender">Giới tính</th>
+                            <th fieldname="DateOfBirth">Ngày sinh</th>
+                            <th fieldname="PhoneNumber">Số điện thoại</th>
+                            <th fieldname="Email">Email</th>
+                            <th fieldname="PositionName">Chức vụ</th>
+                            <th fieldname="DepartmentName">Phòng ban</th>
+                            <th fieldname="Salary">Mức lương hiện tại</th>
+                            <th fieldname="Address">Địa chỉ</th>
+                            <th fieldname="WorkStatus">Tình trạng công việc</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr> 
+                        <!-- <tr> 
                             <th>MF916</th>
                             <th>Nguyễn Tuấn Minh</th>
                             <th>Nam</th>
@@ -373,7 +377,7 @@
                             <th>3.000.000</th>
                             <th style="max-width: 100px;">Số nhà 19, Tổ 4, Thạch Bàn, Long Biên, Hà Nội</th>
                             <th>Đào tạo</th>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -417,7 +421,7 @@
                                 <div class="common-input">
                                     <label for="employee-id" class ="must-fill">Mã nhân viên</label>
                                     <br>
-                                    <input type="text" id="employee-id" class="input-label must-fill-input">
+                                    <input type="text" id="employee-id" class="input-label must-fill-input" autofocus>
                                 </div>
                                 <div class="common-input">
                                     <label for="full-name" class ="must-fill">Họ và tên</label>
@@ -435,7 +439,7 @@
                                     <input type="text" id="gender" class="input-label">
                                 </div>
                                 <div class="common-input">
-                                    <label for="idenity-number" class ="must-fill">Số CMTND/ Căn cước</label>
+                                    <label for="idenity-number" class="must-fill">Số CMTND/ Căn cước</label>
                                     <br>
                                     <input type="text" id="idenity-number" class="input-label must-fill-input">
                                 </div>
@@ -487,12 +491,13 @@
                                 <div class="common-input">
                                     <label for="salary">Mức lương cơ bản</label>
                                     <br>
-                                    <input type="text" id="salary" class="input-label">
+                                    <input type="text" id="salary" class="input-label input-salary">
+                                    <span class="inner-text">(VNĐ)</span>
                                 </div>
                                 <div class="common-input">
                                     <label for="date-start">Ngày gia nhập công ty</label>
                                     <br>
-                                    <input type="text" id="date-start" class="input-label">
+                                    <input type="date" id="date-start" class="input-label">
                                 </div>
                                 <div class="common-input">
                                     <label for="job-status">Tình trạng công việc</label>

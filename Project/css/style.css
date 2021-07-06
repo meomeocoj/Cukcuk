@@ -161,6 +161,7 @@
 .side-bar-node:hover {
     background-color: #e5e5e5;
     color: #000000;
+    cursor: pointer;
 }
 
 .side-bar-node:active {

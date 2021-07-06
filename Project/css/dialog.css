@@ -81,6 +81,9 @@
                     flex-wrap: wrap;
                     justify-content: space-between;
                 }
+                .common-inputs .common-input{
+                    position: relative;
+                }
                 .dialog-container .dialog-modal .dialog-modal-add-form .dialog-modal-add-form-main .add-form .common-info{
                     margin-top: 10px;
                 }
@@ -104,4 +107,18 @@
                     border: 1px solid #BBB;
                     border-radius:4px;
                     margin-right: 4px;
+                }
+                .input-salary{
+                   box-sizing: border-box;
+                   width: 304px;
+                }
+                #salary{
+                    padding-right: 56px;
+                }
+                .inner-text{
+                    font-family: "GoogleSans-Italic";
+                    color: #BBB;
+                    position: absolute;
+                    bottom:12px;
+                    right: 10px;
                 }

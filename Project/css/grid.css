@@ -12,8 +12,10 @@ table {
 
 table th,
 td {
+    max-width: 100px;
     border-bottom: 1px solid #bbb;
-    padding: 10px 0px 10px 16px;
+    box-sizing: border-box;
+    line-height:48px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,6 +1,12 @@
 function formatDate(value){
-return value.toLocaleString().slice(0,10);
+    let date = new Date(value);
+    let newDate = date.getDate();
+    let newMonth= date.getMonth() + 1;
+    let newYear = date.getFullYear();
+return '' + newDate + '/' + newMonth + '/' + newYear;
 }
 function formatMoney(value){
-return value.toFixed(0).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    if(value){
+        return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    }else return '';   
 }
