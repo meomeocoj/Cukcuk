@@ -7,11 +7,13 @@
 }
 
 table {
+    box-sizing: border-box;
     width: calc(100% - 7px);
 }
 
 table th,
 td {
+    box-sizing: border-box;
     max-width: 100px;
     border-bottom: 1px solid #bbb;
     box-sizing: border-box;
@@ -20,6 +22,7 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 0px 12px;
 }
 
 table tbody tr:nth-child(odd) {

@@ -91,7 +91,7 @@
             <div class="main-header">
                 <div class="main-header-left">Danh sách nhân viên</div>
                 <div class="main-header-right">
-                    <button id = "btnAdd" class="btn-type-1">
+                    <button id="btnAdd" class="btn-type-1">
                         <i><img src="../Resource/icon/add.png" alt=""></i>
                         <span>Thêm nhân viên</span>
                     </button>
@@ -103,7 +103,7 @@
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
                     <div class="dropdown-select" style="display:inline-block">
                         <select class="input-label input-normal" name="filter-position" id="filter-position">
-                            <option value="none" >Tất cả phòng ban</option>
+                            <option value="none">Tất cả phòng ban</option>
                             <option value="none">Tất cả phòng ban</option>
                             <option value="none">Tất cả phòng ban</option>
                         </select>
@@ -421,54 +421,57 @@
                             <p class="add-form-header">A. THÔNG TIN CHUNG:</p>
                             <div class="common-inputs">
                                 <div class="common-input">
-                                    <label for="employee-id" class ="must-fill">Mã nhân viên</label>
+                                    <label for="employee-id" class="must-fill" >Mã nhân viên</label>
                                     <br>
-                                    <input type="text" id="employee-id" class="input-label must-fill-input" autofocus>
+                                    <input type="text" id="employee-id" class="input-label must-fill-input" autofocus
+                                        required validate="false" fieldname="EmployeeCode">
                                 </div>
                                 <div class="common-input">
-                                    <label for="full-name" class ="must-fill">Họ và tên</label>
+                                    <label for="full-name" class="must-fill">Họ và tên</label>
                                     <br>
-                                    <input type="text" id="full-name" class="input-label must-fill-input">
+                                    <input type="text" id="full-name" class="input-label must-fill-input" required
+                                        validate="false" fieldname="FullName">
                                 </div>
                                 <div class="common-input">
                                     <label for="date-of-birth">Ngày sinh</label>
                                     <br>
-                                    <input type="date" id="date-of-birth" class="input-label">
+                                    <input type="date" id="date-of-birth" class="input-label" fieldname="DateOfBirth">
                                 </div>
                                 <div class="common-input">
-                                    <label for="gender" >Giới tính</label>
+                                    <label for="gender">Giới tính</label>
                                     <br>
-                                    <input type="text" id="gender" class="input-label">
+                                    <input type="text" id="gender" class="input-label" fieldname="Gender">
                                 </div>
                                 <div class="common-input">
                                     <label for="idenity-number" class="must-fill">Số CMTND/ Căn cước</label>
                                     <br>
-                                    <input type="text" id="idenity-number" class="input-label must-fill-input">
+                                    <input type="text" id="idenity-number" class="input-label must-fill-input" required
+                                        validate="false" fieldname="IdentityNumber">
                                 </div>
                                 <div class="common-input">
-                                    <label for="date-apply" >Ngày cấp</label>
+                                    <label for="date-apply">Ngày cấp</label>
                                     <br>
-                                    <input type="date" id="date-apply" class="input-label">
+                                    <input type="date" id="date-apply" class="input-label"  fieldname="IdentityDate">>
                                 </div>
                                 <div class="common-input">
-                                    <label for="location" >Nơi cấp</label>
+                                    <label for="location">Nơi cấp</label>
                                     <br>
-                                    <input type="text" id="location" class="input-label">
+                                    <input type="text" id="location" class="input-label" fieldname="IdentityPlace">
                                 </div>
                                 <div class="common-input" style="visibility: hidden;">
-                                    <label for="full-name"></label>
-                                    <br>
-                                    <input type="text" class="input-label">
+                                    <label for="location">Nơi cấp</label>
                                 </div>
                                 <div class="common-input">
-                                    <label for="email" class ="must-fill">Email</label>
+                                    <label for="email" class="must-fill">Email</label>
                                     <br>
-                                    <input type="text" id="email" class="input-label must-fill-input">
+                                    <input type="text" id="email" class="input-label must-fill-input" required 
+                                        validate="false" fieldname="Email">
                                 </div>
                                 <div class="common-input">
-                                    <label for="phone-number" class ="must-fill">Số điện thoại</label>
+                                    <label for="phone-number" class="must-fill">Số điện thoại</label>
                                     <br>
-                                    <input type="text" id="phone-number" class="input-label must-fill-input">
+                                    <input type="text" id="phone-number" class="input-label must-fill-input" required
+                                        validate="false" fieldname="PhoneNumber">
                                 </div>
                             </div>
                         </div>
@@ -478,33 +481,34 @@
                                 <div class="common-input">
                                     <label for="office">Vị trí</label>
                                     <br>
-                                    <input type="text" id="office" class="input-label">
+                                    <input type="text" id="office" class="input-label" fieldname="PositionName">
+
                                 </div>
                                 <div class="common-input">
-                                    <label for="full-name">Phòng ban</label>
+                                    <label for="full-name"  fieldname="DepartmentName">Phòng ban</label>
                                     <br>
                                     <input type="text" id="department" class="input-label">
                                 </div>
                                 <div class="common-input">
                                     <label for="tax-number">Mã số thuế cá nhân</label>
                                     <br>
-                                    <input type="text" id="tax-number" class="input-label">
+                                    <input type="text" id="tax-number" class="input-label" fieldname="PersonalTaxCode">
                                 </div>
                                 <div class="common-input">
                                     <label for="salary">Mức lương cơ bản</label>
                                     <br>
-                                    <input type="text" id="salary" class="input-label input-salary">
+                                    <input type="text" id="salary" class="input-label input-salary" fieldname="Salary">
                                     <span class="inner-text">(VNĐ)</span>
                                 </div>
                                 <div class="common-input">
-                                    <label for="date-start">Ngày gia nhập công ty</label>
+                                    <label for="date-start" >Ngày gia nhập công ty</label>
                                     <br>
-                                    <input type="date" id="date-start" class="input-label">
+                                    <input type="date" id="date-start" class="input-label" fieldname="JoinDate">
                                 </div>
                                 <div class="common-input">
                                     <label for="job-status">Tình trạng công việc</label>
                                     <br>
-                                    <input type="text" id="job-status" class="input-label">
+                                    <input type="text" id="job-status" class="input-label" fieldname="WorkStatus">
                                 </div>
 
                             </div>
@@ -512,8 +516,9 @@
                     </div>
                 </div>
                 <div class="add-form-footer">
-                    <div class="btn-type-2" id="cancel" style="width:70px">Hủy</div>
-                    <div class="btn-type-1" id="save" style="width:70px"><img src="../Resource/icon/floppy-disk.png" alt="" style="width:20px;height:20px;display: inline-block; margin-right: 10px;">Lưu</div>
+                    <div class="btn-type-2" id="btnCancel" style="width:70px">Hủy</div>
+                    <div class="btn-type-1" id="btnSave" style="width:70px"><img src="../Resource/icon/floppy-disk.png"
+                            alt="" style="width:20px;height:20px;display: inline-block; margin-right: 10px;">Lưu</div>
                 </div>
             </div>
         </div>
