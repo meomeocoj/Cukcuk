@@ -29,7 +29,7 @@
         <div class="top-right">
             <div class="department">
                 <img src="../Resource/img/Artboard-97@10x.png" alt="" style="width:30px; height:30px;">
-                <div class="dropdown-wrapper" style="display:inline-block">
+                <div class="dropdown-wrapper" id="dropdown-header" style="display:inline-block">
                     <input class="department-name" value=""/>
                     <div class="dropdown-list">
                         <div class="item">Chi nhánh Hồ Chí Minh</div>
@@ -107,23 +107,24 @@
                 <div class="filter-left">
                     <input type="text" class="search-background input-icon" id="search-employee"
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
-                        <div class="dropdown-wrapper" style="display:inline-block">
-                            <span class="department-name">Chi nhánh Hà Nội</span>
+                        <div class="dropdown-wrapper dropdown-filter" id="department-filter" style="display:inline-block">
+                                <input type="text">
+                                <i><img src="../Resource/icon/x.svg"alt=""></i>
                             <div class="dropdown-list">
                                 <div class="item">
-                                    Chi nhánh Hồ Chí Minh
+                                    <i style="visibility:hidden"><img src="../Resource/icon/tick.png" alt=""></i>
+                                   <span>Tất cả các phòng ban</span>
                                 </div>
                                 <div class="item">
-                                    Chi nhánh Hồ Chí Minh
-                                </div>    
-                                <div class="item">
-                                    Chi nhánh Hồ Chí Minh
+                                    <i style="visibility:hidden"><img src="../Resource/icon/tick.png" alt=""></i>
+                                    <span>Phòng 4</span>
                                 </div>       
                                 <div class="item">
-                                    Chi nhánh Hồ Chí Minh
+                                    <i style="visibility:hidden"><img src="../Resource/icon/tick.png" alt=""></i>
+                                    <span>Phòng 2</span>
                                 </div>                             
                             </div>
-                            <div class="arrow"></div>
+                            <div class="arrow arrow-filter"></div>
                         </div>
                 </div>
                 <div class="filter-right refresh-background btn-type-2" id="btnRefresh">
@@ -544,8 +545,9 @@
     <script src="../js/library/jquery-3.6.0.js"></script>
     <script src="../js/common/base.js"></script>
     <script src="../js/common/common.js"></script>
-    <script src="../js/page/employees.js"></script>
     <script src="../js/common/dropdown.js"></script>
+    <script src="../js/page/employees.js"></script>
+  
 </body>
 
 </html>

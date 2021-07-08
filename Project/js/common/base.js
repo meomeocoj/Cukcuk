@@ -3,6 +3,7 @@ class Base {
         this.loadData();
         this.initiateEvents();
     }
+    //#region Method
     /**
      *Intitiate Events
      * Created by ntminh
@@ -206,4 +207,5 @@ class Base {
             alert('fail');
         });
     }
+    //#endregion
 }

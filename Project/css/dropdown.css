@@ -42,7 +42,10 @@
     cursor: pointer;
 }
 .dropdown-wrapper .dropdown-list .item:hover{
-    background-color:#bbb;
+    background-color:#E9EBEE;
+}
+.item-active{
+    background-color:#019160 !important;
     color:#fff;
 }
 .dropdown-wrapper .arrow{
@@ -59,6 +62,71 @@
     z-index: 101;
     cursor: pointer;
     transition: transform .25s ease-in-out; 
+}
+/*Dropdown filter
+* Created ntminh
+* Date 7/7/2021
+*/
+.dropdown-filter{
+    height:40px;
+    border:1px solid #D2D2D2;
+    margin-left: 10px;
+    padding:0px 12px 0px 16px;
+    border-radius:4px;
+    font-family: "GoogleSans-Regular";
+    font-size: 13px;
+}
+.dropdown-filter input{
+    border:none;
+    display: inline-block;
+    position: relative;
+    border-right: 1px solid #D2D2D2;
+    border-radius:0px;
+    line-height: 100%;
+    height:calc(100% - 2px);
+    width: calc(100% - 49px);
+    padding-right:20px;
+}
+.dropdown-filter i{
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    right:50px;
+    height:0;
+    width:0;
+    background-color: #bbb;
+    border-radius:50%;
+}
+.dropdown-filter i img{
+    width:12px;
+    height:12px;
+}
+.dropdown-filter:focus-within{
+    border-color: #019160;
+}
+.dropdown-filter input:focus{
+    border-color: #019160;
+}
+.dropdown-filter .dropdown-list{
+    box-sizing: border-box;
+    right:0px;
+    top:40px;
+    border-radius:4px;
+    width:inherit;
+   
+}
+.dropdown-filter .dropdown-list .item{
+    font-family: "GoogleSans-Regular";
+    font-size: 13px;
+    line-height: 40px;
+    height:40px;
+}
+.dropdown-filter .dropdown-list .item span{
+    margin-left: 10px;
+}
+.dropdown-wrapper .arrow-filter{
+    top:12px;
+    right:12px;
 }
 .arrow-click{
     transform: rotate(-90deg) !important;
