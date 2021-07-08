@@ -229,7 +229,9 @@ class Base {
                                 value = $('<input type="checkbox" onclick="this.checked=!this.checked"/>');
                             }
                         } else if(fieldName == "DeleteBtn"){
-                            value = $('<div style="dis"><img>')
+                            value = $('<img src="/Project/Resource/icon/delete.png">');
+                        } else if(fieldName == "Gender"){
+                            value = Formater.formatGenderToClient(value);
                         }
                         td.append(value);
                         tr.append(td);
@@ -243,6 +245,9 @@ class Base {
             console.log(e);
         }
         
+    }
+    fixData(){
+
     }
     //#endregion
 }
