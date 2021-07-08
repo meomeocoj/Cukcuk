@@ -1,9 +1,10 @@
 $(document).ready(function() {
-    new Employees;
+    let abc = new Employees('Employees');
+    // consle.log(abc.ApiName);
 })
 
 class Employees extends Base{
-    constructor(){
-        super();
+    constructor(ApiName){
+        super(ApiName);
     }
 }
