@@ -1,13 +1,24 @@
 class Base {
-    constructor() {
-        this.loadData();
+    Host = "cukcuk.manhnv.net/v1";
+    constructor(ApiName) {
+        this.ApiName = ApiName;
         this.initiateEvents();
+        this.loadData();
     }
+    //#region Method
     /**
      *Intitiate Events
      * Created by ntminh
      * Date:30/6/2012
      */
+    //set & get ApiName 
+    get ApiName(){
+        return this._ApiName;
+    }
+    set ApiName(ApiName){
+        this._ApiName = ApiName;
+    }
+
     initiateEvents() {
         let me = this;
         //autofocus when show;
@@ -16,7 +27,6 @@ class Base {
             $('.dialog-container').show(500);
             $('#employee-id').focus();
         })
-
         //close the add dialog
         $('.close-btn').click(function () {
             $('.dialog-container').hide(500);
@@ -35,7 +45,7 @@ class Base {
         * Created by ntminh
         * Date:6/7/2012
         */
-        //save date
+        //add function
         $('#btnSave').click(function () {
             //Generate new employee
             let flag = true;
@@ -47,27 +57,46 @@ class Base {
                     $(this).focus();
                     flag = false;
                 } else {
+                    if($(this).attr('fieldname') === "FullName"){
+                        let fullName = $(this).val().split(" ");
+                        newEmployee['LastName'] = fullName[0];
+                        newEmployee['FirstName'] = fullName[fullName.length -1];
+                    }
                     newEmployee[$(this).attr('fieldname')] = $(this).val();
                 }
             });
-            if (flag) {
+            if(!flag) {
+                $('.dialog-container').find('input[required]')[0].focus;
+            }
+            else{
                 //search another input
                 $('.dialog-container').find('input').each(function () {
                     if (!$(this).prop('required')) {
-                        newEmployee[$(this).attr('fieldname')] = $(this).val();
+                        let value = $(this).val();
+                        if($(this).attr('fieldname') === "Salary"){
+                            value = Formater.formatMoneyToServer(value);
+                        }else if($(this).attr('fieldname') === "Gender"){
+                            value = Formater.formatGenderToServer(value);
+                        } 
+                        if(value)
+                        newEmployee[$(this).attr('fieldname')] = value;
                     }
                 });
                 console.log(JSON.stringify(newEmployee));
-                $.ajax({
-                    url: "http://cukcuk.manhnv.net/v1/Employees",
-                    method: 'POST',
-                    contentType: "application/json ; charset=utf-8",
-                    data: JSON.stringify(newEmployee),
-                }).done(function(res){
-                    alert(1);
-                }).fail(function(res){
-                    alert(2);
-                });
+                try {
+                    $.ajax({
+                        url: `http://${me.Host}/${me.ApiName}`,
+                        method: 'POST',
+                        contentType: "application/json ; charset=utf-8",
+                        data: JSON.stringify(newEmployee),
+                    }).done(function(res){
+                        console.log(res);
+                    }).fail(function(res){
+                        console.log(res);
+                    });
+                }catch (e) {
+                    console.log(e);
+                }
             }
         });
         //must fill label
@@ -130,7 +159,8 @@ class Base {
         $('#phone-number').on({
             blur: function () {
                 let value = $(this).val();
-                if (!value || !value.match(/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/)) {
+                console.log(value.match(/((09|03|07|08|05)+([0-9]{8})\b)/g));
+                if (!value || !value.match(/((09|03|07|08|05)+([0-9]{8})\b)/g)) {
                     $(this).addClass('border-red');
                     $(this).attr('validate', 'false');
                 } else {
@@ -170,40 +200,49 @@ class Base {
      * Date:5/7/2012
      */
     loadData() {
-        $.ajax({
-            url: "http://cukcuk.manhnv.net/v1/Employees",
-            method: "GET"
-        }).done((res) => {
-            //fetch data
-            let tableThs = $("table thead th");
-            let tbody = $('table tbody');
-            tbody.empty();
-            //bindin data
-            $.each(res, (index, obj) => {
-                let tr = $("<tr></tr>");
-                $.each(tableThs, (i, o) => {
-                    let fieldName = $(o).attr('fieldname');
-                    let td = $('<td></td>');
-                    let value = obj[fieldName];
-                    if (fieldName == "DateOfBirth") {
-                        value = formatDate(value);
-                    } else if (fieldName == "Salary") {
-                        value = formatMoney(value);
-                    } else if (fieldName == "WorkStatus"){
-                        if (value > 0){
-                            value = $('<input type="checkbox" checked onclick="this.checked=!this.checked"/>');
+        let me = this;
+        try {
+            $.ajax({
+                url: `http://${me.Host}/${me.ApiName}`,
+                method: "GET"
+            }).done((res) => {
+                //fetch data
+                let tableThs = $("table thead th");
+                let tbody = $('table tbody');
+                tbody.empty();
+                //bindin data
+                $.each(res, (index, obj) => {
+                    let tr = $("<tr></tr>");
+                    $.each(tableThs, (i, o) => {
+                        let fieldName = $(o).attr('fieldname');
+                        let td = $('<td style="text-align:center;vertical-align:middle"></td>');
+                        let value = obj[fieldName];
+                        if (fieldName == "DateOfBirth") {
+                            value = Formater.formatDateToClient(value);
+                        } else if (fieldName == "Salary") {
+                            value = Formater.formatMoneyToClient(value);
+                        } else if (fieldName == "WorkStatus"){
+                            if (value > 0){
+                                value = $('<input type="checkbox" checked onclick="this.checked=!this.checked"/>');
+                            }
+                            else{
+                                value = $('<input type="checkbox" onclick="this.checked=!this.checked"/>');
+                            }
+                        } else if(fieldName == "DeleteBtn"){
+                            value = $('<div style="dis"><img>')
                         }
-                        else{
-                            value = $('<input type="checkbox" onclick="this.checked=!this.checked"/>');
-                        }
-                    }
-                    td.append(value);
-                    tr.append(td);
+                        td.append(value);
+                        tr.append(td);
+                    })
+                    tbody.append(tr);
                 })
-                tbody.append(tr);
-            })
-        }).fail(() => {
-            alert('fail');
-        });
+            }).fail(() => {
+                alert('fail');
+            });
+        }catch (e) {
+            console.log(e);
+        }
+        
     }
+    //#endregion
 }
