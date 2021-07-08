@@ -87,7 +87,7 @@
     width: calc(100% - 49px);
     padding-right:20px;
 }
-.dropdown-filter i{
+.dropdown-filter > i{
     display: inline-block;
     position: absolute;
     top: 13px;

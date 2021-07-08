@@ -187,7 +187,7 @@ class Base {
                     $(this).attr('validate', 'false');
                     $(this).addClass('border-red');
                 } else {
-                    let formartMoney = formatMoney(res);
+                    let formartMoney = Formater.formatMoneyToClient(res);
                     $(this).val(formartMoney);
                     $(this).removeClass('border-red');
                 }

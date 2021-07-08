@@ -20,8 +20,7 @@ function dropdownHandler(dropdown){
             $(this).parent().parent().find('input').val($(this).text().trim());
             $(this).siblings().removeClass('item-active');
             $(this).siblings().find('i').css('visibility', 'hidden');
-            $(this).addClass('item-active').find('i').css('visibility','visible');;
-            // $(this)
+            $(this).addClass('item-active').find('i').css('visibility','visible');
             $(this).parent().slideToggle(250,"linear").parent().find('.arrow').toggleClass('arrow-click');;
         })
     })

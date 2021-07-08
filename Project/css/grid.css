@@ -28,6 +28,6 @@ td {
 table tbody tr:nth-child(odd) {
     background-color: #E9EBEE;
 }
-table tr:hover{
+table tbody tr:hover{
     background-color: #bbb !important;
 }
