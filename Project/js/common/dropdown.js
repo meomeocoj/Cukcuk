@@ -7,6 +7,8 @@ function dropdownHandler(dropdown){
     let items = dropdown.find('.item');
     let input = dropdown.find('input');
     let arrow = dropdown.find('.arrow');
+    let i_x = dropdown.find('i')[0];
+    //arrow click
     arrow.click(function(e){
         e.stopPropagation();
         $(this).parent().find('.department-name').focus();
@@ -14,6 +16,7 @@ function dropdownHandler(dropdown){
         $(this).toggleClass('arrow-click');
         return true;
     })
+    //handle each click
     items.each(function(){
         $(this).click(function(e) {
             e.stopPropagation();
@@ -24,7 +27,24 @@ function dropdownHandler(dropdown){
             $(this).parent().slideToggle(250,"linear").parent().find('.arrow').toggleClass('arrow-click');;
         })
     })
+
+    //input handler
     input.val($(items[0]).text().trim());
+    input.on({
+        click: function(){
+            $(this).val('');
+        },
+        keyup: function(e){
+            let xBtn = $(this).parent().find('i')[0];
+            $(xBtn).css("visibility","visible");
+        }
+    })
+    //x_btn handler
+    $(i_x).click(function(e){
+        e.stopPropagation;
+        $(this).css('visibility','hidden');
+        $(this).parent().find('input').val('');
+    })
     $(items[0]).addClass('item-active').find('i').css('visibility', 'visible');
     $(document).click(function(e){
         e.stopPropagation();

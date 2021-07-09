@@ -12,10 +12,10 @@ class Base {
      * Date:30/6/2012
      */
     //set & get ApiName 
-    get ApiName(){
+    get ApiName() {
         return this._ApiName;
     }
-    set ApiName(ApiName){
+    set ApiName(ApiName) {
         this._ApiName = ApiName;
     }
 
@@ -24,8 +24,11 @@ class Base {
         //autofocus when show;
         $('#btnAdd').click(function () {
             //display the add dialog;
-            $('.dialog-container').show(500);
-            $('#employee-id').focus();
+            let dialogContainer = $('.dialog-container');
+            dialogContainer.data('typeForm', 'add');
+            dialogContainer.find('input').val('');
+            dialogContainer.show(500);
+            dialogContainer.find('input')[0].focus();
         })
         //close the add dialog
         $('.close-btn').click(function () {
@@ -48,55 +51,14 @@ class Base {
         //add function
         $('#btnSave').click(function () {
             //Generate new employee
-            let flag = true;
-            let newEmployee = {};
-            //search required data
-            $('.dialog-container').find('input[required]').each(function () {
-                if ($(this).attr('validate') == 'false') {
-                    $(this).trigger('blur');
-                    $(this).focus();
-                    flag = false;
-                } else {
-                    if($(this).attr('fieldname') === "FullName"){
-                        let fullName = $(this).val().split(" ");
-                        newEmployee['LastName'] = fullName[0];
-                        newEmployee['FirstName'] = fullName[fullName.length -1];
-                    }
-                    newEmployee[$(this).attr('fieldname')] = $(this).val();
+            if ($('.dialog-container').data('typeForm') == 'add') {
+                let newEmployee = Dialog.addDialog();
+                if (newEmployee) {
+                    me.add(newEmployee);
                 }
-            });
-            if(!flag) {
-                $('.dialog-container').find('input[required]')[0].focus;
-            }
-            else{
-                //search another input
-                $('.dialog-container').find('input').each(function () {
-                    if (!$(this).prop('required')) {
-                        let value = $(this).val();
-                        if($(this).attr('fieldname') === "Salary"){
-                            value = Formater.formatMoneyToServer(value);
-                        }else if($(this).attr('fieldname') === "Gender"){
-                            value = Formater.formatGenderToServer(value);
-                        } 
-                        if(value)
-                        newEmployee[$(this).attr('fieldname')] = value;
-                    }
-                });
-                console.log(JSON.stringify(newEmployee));
-                try {
-                    $.ajax({
-                        url: `http://${me.Host}/${me.ApiName}`,
-                        method: 'POST',
-                        contentType: "application/json ; charset=utf-8",
-                        data: JSON.stringify(newEmployee),
-                    }).done(function(res){
-                        console.log(res);
-                    }).fail(function(res){
-                        console.log(res);
-                    });
-                }catch (e) {
-                    console.log(e);
-                }
+            } else {
+                me.edit();
+
             }
         });
         //must fill label
@@ -107,6 +69,7 @@ class Base {
                 let value = $(this).val();
                 if (!value) {
                     $(this).addClass('border-red');
+                    $(this).attr('validate', 'false');
                 } else {
                     $(this).removeClass('border-red');
                     $(this).attr('validate', 'true');
@@ -120,12 +83,19 @@ class Base {
                 }
             }
         });
+        /****************
+         * Validate form information
+         * Created by ntminh
+         * Date: 30/6/2021
+         * Modified date: 9/7/2021
+         */
         //validate the identity number
         $('#idenity-number').on({
             keyup: function () {
                 let value = $(this).val();
                 if (value && !value.match(/^\d*$/)) {
                     $(this).addClass('border-red');
+                    $(this).attr('validate', 'false');
                 } else {
                     $(this).removeClass('border-red');
                     $(this).attr('validate', 'true');
@@ -134,6 +104,7 @@ class Base {
             blur: function () {
                 let value = $(this).val();
                 if (!value || !value.match(/^(\d{10}|\d{12})$/)) {
+                   
                     $(this).addClass('border-red');
                     $(this).attr('validate', 'false');
                 } else {
@@ -159,7 +130,6 @@ class Base {
         $('#phone-number').on({
             blur: function () {
                 let value = $(this).val();
-                console.log(value.match(/((09|03|07|08|05)+([0-9]{8})\b)/g));
                 if (!value || !value.match(/((09|03|07|08|05)+([0-9]{8})\b)/g)) {
                     $(this).addClass('border-red');
                     $(this).attr('validate', 'false');
@@ -193,7 +163,43 @@ class Base {
                 }
             },
         });
+        /**
+         * View 1 record in the form
+         * Created by ntminh
+         * Date: 9/7/2021
+         */
+        $('table tbody').on('dblclick', 'tr', function (e) {
+             $.ajax({
+                url: `http://${me.Host}/${me.ApiName}/${$(this).data('EmployeeId')}`,
+                method: 'GET',
+            }).done((res) => {
+                let editDialog = $('.dialog-container');
+                let inputs = editDialog.find('input');
+                editDialog.data('typeForm', 'edit');
+                editDialog.data('EmployeeId', $(this).data('EmployeeId'));
+                $(inputs).each(function () {
+                    let value = res[$(this).attr('fieldname')];
+                    if ($(this).attr('type') === 'date') {
+                        value = Formater.formatDateToInput(value);
+                    } else if ($(this).attr('fieldname') === 'Salary') {
+                        value = Formater.formatMoneyToClient(value);
+                    } else if ($(this).attr('fieldname') === 'Gender') {
+                        value = Formater.formatGenderToClient(value);
+                    }
+                    $(this).val(value);
+                });
+            }).fail((res) => {
+                console.log(-1);
+            });
+        });
+        //EVENT CLICK DELETE BTN
+        $('table tbody').on('click', '.delete-btn', function (e) {
+            let employeeId = $(this).parent().parent().data('EmployeeId');
+            me.delete(employeeId);
+        })
+
     }
+//#region API
     /**
      *Load data from API
      * Created by ntminh
@@ -213,6 +219,7 @@ class Base {
                 //bindin data
                 $.each(res, (index, obj) => {
                     let tr = $("<tr></tr>");
+                    tr.data("EmployeeId", obj.EmployeeId);
                     $.each(tableThs, (i, o) => {
                         let fieldName = $(o).attr('fieldname');
                         let td = $('<td style="text-align:center;vertical-align:middle"></td>');
@@ -221,16 +228,16 @@ class Base {
                             value = Formater.formatDateToClient(value);
                         } else if (fieldName == "Salary") {
                             value = Formater.formatMoneyToClient(value);
-                        } else if (fieldName == "WorkStatus"){
-                            if (value > 0){
+                        } else if (fieldName == "WorkStatus") {
+                            if (value > 0) {
                                 value = $('<input type="checkbox" checked onclick="this.checked=!this.checked"/>');
                             }
-                            else{
+                            else {
                                 value = $('<input type="checkbox" onclick="this.checked=!this.checked"/>');
                             }
-                        } else if(fieldName == "DeleteBtn"){
-                            value = $('<img src="/Project/Resource/icon/delete.png">');
-                        } else if(fieldName == "Gender"){
+                        } else if (fieldName == "DeleteBtn") {
+                            value = $('<img src="/Project/Resource/icon/delete.png" class="delete-btn">');
+                        } else if (fieldName == "Gender") {
                             value = Formater.formatGenderToClient(value);
                         }
                         td.append(value);
@@ -241,13 +248,74 @@ class Base {
             }).fail(() => {
                 alert('fail');
             });
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
-        
-    }
-    fixData(){
 
     }
+    /**
+     * PUT from API
+     * Created by ntminh
+     * Date: 9/7/2021
+     */
+    add(newEmployee) {
+        let me = this;
+        try {
+            $.ajax({
+                url: `http://${me.Host}/${me.ApiName}`,
+                method: 'POST',
+                contentType: "application/json ; charset=utf-8",
+                data: JSON.stringify(newEmployee),       
+            }).done(function (res) {
+                $('.close-btn').trigger('click');
+                me.loadData();
+            }).fail(function () {
+                err
+                console.log(err);
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    edit() {
+        let me = this;
+        let newEmployee = Dialog.addDialog();
+        if (newEmployee) {
+            try{
+               var res =  $.ajax({
+                    url: `http://${me.Host}/${me.ApiName}/${$('.dialog-container').data('EmployeeId')}`,
+                    method: 'PUT',
+                    contentType: "application/json ; charset=utf-8",
+                    data: JSON.stringify(newEmployee),
+                }).done((res) => {
+                    $('.close-btn').trigger('click');
+                    me.loadData();
+                }).fail((err) => {
+                    console.log(err);
+                });
+            }catch(e){
+                console.log(e);
+            }
+        }
+    }
+    /**
+     * DELETE from API
+     * @param id - entityID
+     * Created by ntminh
+     * Date: 9/7/2021
+     */
+    delete(id) {
+        let me = this;
+        $.ajax({
+            url: `http://${me.Host}/${me.ApiName}/${id}`,
+            method: `DELETE`,
+        }).done((res) => {
+            me.loadData();
+            console.log(res);
+        }).fail((err) => {
+            console.log(err);
+        })
+    }
+    ////#endregion
     //#endregion
 }

@@ -88,18 +88,27 @@
     padding-right:20px;
 }
 .dropdown-filter > i{
-    display: inline-block;
+    visibility:hidden;
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 13px;
-    right:50px;
-    height:0;
-    width:0;
-    background-color: #bbb;
+    right:53px;
+    height:12px;
+    width:12px;
+    padding:1px 1px 1px 1px;
+    background-color: #E5E5E5 ;
+    transition: .25s ease;
     border-radius:50%;
+    cursor:pointer;
 }
-.dropdown-filter i img{
+.dropdown-filter > i:hover{
+    padding:2px 2px 2px 2px;
+}
+.dropdown-filter > i > img{
     width:12px;
     height:12px;
+
 }
 .dropdown-filter:focus-within{
     border-color: #019160;

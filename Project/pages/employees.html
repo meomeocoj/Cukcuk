@@ -165,7 +165,6 @@
                     <a href="#" class="number-page">4</a>
                     <a href="#" id="first-page"><img src="../Resource/icon/btn-next-page.svg" alt=""></a>
                     <a href="#" id="first-page"><img src="../Resource/icon/btn-lastpage.svg" alt=""></a>
-
                 </div>
                 <div class="paging-bar-right">
                     10 nhân viên/trang
@@ -193,13 +192,13 @@
                                     <label for="employee-id" class="must-fill" >Mã nhân viên</label>
                                     <br>
                                     <input type="text" id="employee-id" class="input-label must-fill-input" autofocus
-                                        required validate="false" fieldname="EmployeeCode">
+                                        required validate="true" fieldname="EmployeeCode">
                                 </div>
                                 <div class="common-input">
                                     <label for="full-name" class="must-fill">Họ và tên</label>
                                     <br>
                                     <input type="text" id="full-name" class="input-label must-fill-input" required
-                                        validate="false" fieldname="FullName">
+                                        validate="true" fieldname="FullName">
                                 </div>
                                 <div class="common-input">
                                     <label for="date-of-birth">Ngày sinh</label>
@@ -215,12 +214,12 @@
                                     <label for="idenity-number" class="must-fill">Số CMTND/ Căn cước</label>
                                     <br>
                                     <input type="text" id="idenity-number" class="input-label must-fill-input" required
-                                        validate="false" fieldname="IdentityNumber">
+                                        validate="true" fieldname="IdentityNumber">
                                 </div>
                                 <div class="common-input">
                                     <label for="date-apply">Ngày cấp</label>
                                     <br>
-                                    <input type="date" id="date-apply" class="input-label"  fieldname="IdentityDate">>
+                                    <input type="date" id="date-apply" class="input-label"  fieldname="IdentityDate">
                                 </div>
                                 <div class="common-input">
                                     <label for="location">Nơi cấp</label>
@@ -234,13 +233,13 @@
                                     <label for="email" class="must-fill">Email</label>
                                     <br>
                                     <input type="text" id="email" class="input-label must-fill-input" required 
-                                        validate="false" fieldname="Email">
+                                        validate="true" fieldname="Email">
                                 </div>
                                 <div class="common-input">
                                     <label for="phone-number" class="must-fill">Số điện thoại</label>
                                     <br>
                                     <input type="text" id="phone-number" class="input-label must-fill-input" required
-                                        validate="false" fieldname="PhoneNumber">
+                                        validate="true" fieldname="PhoneNumber">
                                 </div>
                             </div>
                         </div>
@@ -266,7 +265,7 @@
                                 <div class="common-input">
                                     <label for="salary">Mức lương cơ bản</label>
                                     <br>
-                                    <input type="text" id="salary" class="input-label input-salary" fieldname="Salary">
+                                    <input type="text" id="salary" class="input-label input-salary text-align-right" fieldname="Salary">
                                     <span class="inner-text">(VNĐ)</span>
                                 </div>
                                 <div class="common-input">
@@ -293,10 +292,12 @@
         </div>
         <div class="dialog-background"></div>
     </div>
+    <div class="pop-up">
+
     </div>
     <script src="../js/library/jquery-3.6.0.js"></script>
-    <script src="../js/common/base.js"></script>
     <script src="../js/common/common.js"></script>
+    <script src="../js/common/base.js"></script>
     <script src="../js/common/dropdown.js"></script>
     <script src="../js/page/employees.js"></script>
   

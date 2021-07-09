@@ -31,3 +31,7 @@ table tbody tr:nth-child(odd) {
 table tbody tr:hover{
     background-color: #bbb !important;
 }
+.delete-btn:hover{
+    width:18px;
+    height:18px;
+}

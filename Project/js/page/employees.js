@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    let abc = new Employees('Employees');
-    // consle.log(abc.ApiName);
+    new Employees('Employees');
+    
 })
 
 class Employees extends Base{
