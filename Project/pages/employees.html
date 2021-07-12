@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pop-up.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/scrollbar.css">
@@ -107,23 +108,11 @@
                 <div class="filter-left">
                     <input type="text" class="search-background input-icon" id="search-employee"
                         placeholder="Tìm kiếm theo Mã, Tên hoặc số điện thoại" style="width: 320px;">
-                        <div class="dropdown-wrapper dropdown-filter" id="department-filter" style="display:inline-block">
+                        <div class="dropdown-wrapper dropdown-filter" id="department-filter" style="display:inline-block"
+                        entityName = "Position">
                                 <input type="text">
                                 <i><img src="../Resource/icon/x.svg"alt=""></i>
-                            <div class="dropdown-list">
-                                <div class="item">
-                                    <i style="visibility:hidden"><img src="../Resource/icon/tick.png" alt=""></i>
-                                   <span>Tất cả các phòng ban</span>
-                                </div>
-                                <div class="item">
-                                    <i style="visibility:hidden"><img src="../Resource/icon/tick.png" alt=""></i>
-                                    <span>Phòng 4</span>
-                                </div>       
-                                <div class="item">
-                                    <i style="visibility:hidden"><img src="../Resource/icon/tick.png" alt=""></i>
-                                    <span>Phòng 2</span>
-                                </div>                             
-                            </div>
+                            <div class="dropdown-list"></div>
                             <div class="arrow arrow-filter"></div>
                         </div>
                 </div>

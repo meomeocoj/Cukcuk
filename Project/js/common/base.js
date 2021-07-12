@@ -188,6 +188,7 @@ class Base {
                     }
                     $(this).val(value);
                 });
+                editDialog.show(500);
             }).fail((res) => {
                 console.log(-1);
             });

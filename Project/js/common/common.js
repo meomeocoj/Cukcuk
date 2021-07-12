@@ -50,7 +50,6 @@ class Formater{
         return '' + newYear + '-' + newMonth + '-' + newDate;   
     }
 }
-
 /**
  * Create new obj
  * Created by ntminh
@@ -89,24 +88,5 @@ class Dialog{
                    }
            });
        return newEmployee;
-    }
-    static editDialog(){
-        let newEmployee = {};
-        $('.dialog-container').find('input').each(function () {  
-            let value = $(this).val();
-            if(value){
-             if($(this).attr('fieldname') === "Salary"){
-                 value = Formater.formatMoneyToServer(value);
-             }else if($(this).attr('fieldname') === "Gender"){
-                 value = Formater.formatGenderToServer(value);
-             }else if($(this).attr('fieldname') === "FullName"){
-              let fullName = value.split(" ");
-              newEmployee['LastName'] = fullName[0];
-              newEmployee['FirstName'] = fullName[fullName.length -1];
-              }
-              newEmployee[$(this).attr('fieldname')] = value;
-            }
-        });
-        return newEmployee;
     }
 }

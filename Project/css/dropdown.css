@@ -21,13 +21,16 @@
     display: none;
     position: absolute;
     top:31px;
-    max-height: 150px;
+    max-height: 168px;
     width:calc(100% - 24px);
     background-color:#fff;
     overflow-x: hidden;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 4px;
     z-index: 101;
+}
+.dropdown-wrapper .dropdown-list .dropdown-list-active{
+    display:block;
 }
 .dropdown-wrapper .dropdown-list .item{
     box-sizing: border-box;
@@ -41,6 +44,7 @@
     transition: 0.25s ease;
     cursor: pointer;
 }
+
 .dropdown-wrapper .dropdown-list .item:hover{
     background-color:#E9EBEE;
 }

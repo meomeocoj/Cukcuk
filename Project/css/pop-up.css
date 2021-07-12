@@ -1,0 +1,13 @@
+.border-red{
+    border:1px solid red !important;
+}
+.border-red:before{
+    content:"";
+    display:block;
+    position: absolute;
+    top:0px;
+    right:0px;
+    width:10px;
+    height:10px;
+    border-top:22px red solid;
+}
